@@ -21,7 +21,7 @@
 
 -To boost revenue and support long-term profitability, the restaurant should focus on promoting high-performing pizzas, optimizing its menu, and improving inventory planning.
 
-Using the SQL analysis and Power BI dashboard, management can identify the pizzas that generate the most revenue, compare category performance, and track monthly sales trends.
+-Using the SQL analysis and Power BI dashboard, management can identify the pizzas that generate the most revenue, compare category performance, and track monthly sales trends.
 
 1. Promote Top Revenue-Generating Pizzas: Feature the top-performing pizzas in promotional campaigns and on the menu to maintain customer interest and encourage repeat purchases.
 

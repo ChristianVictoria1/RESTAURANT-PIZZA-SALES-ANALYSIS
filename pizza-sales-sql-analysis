@@ -1,0 +1,73 @@
+-- TOTAL ORDERS --
+
+SELECT 
+	COUNT(*) AS total_orders
+FROM orders;
+
+-- TOTAL NUMBER OF MENU ITEMS --
+
+SELECT 
+	COUNT(*) AS total_menu_items 
+FROM pizza_types;
+
+-- TOTAL RESTAURANT REVENUE --
+
+SELECT 
+	ROUND(SUM(od.quantity * p.price), 2) AS total_revenue
+FROM order_details od
+JOIN pizzas p 
+	ON od.pizza_id = p.pizza_id;
+    
+-- TOP 10 REVENUE GENERATING MENU ITEMS --
+
+SELECT 
+	pt.name,
+    ROUND(SUM(od.quantity * p.price), 2) AS total_revenue
+FROM order_details od
+JOIN pizzas p 
+	ON od.pizza_id = p.pizza_id
+JOIN pizza_types pt
+	ON p.pizza_type_id = pt.pizza_type_id
+GROUP BY pt.name
+ORDER BY total_revenue DESC
+LIMIT 10;
+
+-- REVENUE BY CATEGORY -- 
+
+SELECT 
+	pt.category ,
+	ROUND(SUM(od.quantity * p.price),2) AS total_revenue
+FROM order_details od
+JOIN pizzas p
+	ON od.pizza_id = p.pizza_id
+JOIN pizza_types pt
+	ON pt.pizza_type_id = p.pizza_type_id
+GROUP BY category
+ORDER BY total_revenue DESC;
+
+-- BEST SELLING ITEMS -- 
+
+SELECT 
+	pt.name,
+    SUM(od.quantity) AS total_sold
+FROM order_details od
+JOIN pizzas p
+	ON od.pizza_id = p.pizza_id
+JOIN pizza_types pt
+	ON pt.pizza_type_id = p.pizza_type_id
+GROUP BY pt.name
+ORDER BY total_sold DESC
+LIMIT 10;
+
+-- MONTHLY REVENUE TREND -- 
+
+SELECT
+	MONTHNAME(o.date) AS month,
+	ROUND(SUM(od.quantity * p.price),2) AS total_revenue
+FROM orders o 
+JOIN order_details od
+	ON o.order_id = od.order_id
+JOIN pizzas p
+	ON od.pizza_id = p.pizza_id
+GROUP BY MONTH(o.date), MONTHNAME(o.date)
+ORDER BY MONTH(o.date);

@@ -1,5 +1,3 @@
-# RESTAURANT-PIZZA-SALES-ANALYSIS
-Analyzing pizza sales data using SQL and Power BI to identify revenue trends and business opportunities.
 
 ## Restaurant Pizza Sales Analysis | SQL & Power BI
 

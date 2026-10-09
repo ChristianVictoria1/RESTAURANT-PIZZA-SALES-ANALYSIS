@@ -25,6 +25,6 @@
 
 -The analysis establishes a foundation for more informed decisions regarding menu optimization, inventory planning, promotions, and profitability.
 
-##Skills Demonstrated
+## Skills Demonstrated
 
 -SQL querying · Data analysis · Data modeling · KPI development · Power BI visualization · Business intelligence · Data-driven recommendations
